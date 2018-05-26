@@ -1,6 +1,6 @@
 # HackerNews App
 
-### [Live Preview](https://hackernews-leemun1.herokuapp.com/)
+#### Check out the App here: [Live Preview](https://hackernews-leemun1.herokuapp.com/)
 
 ![screenshot](./public/screenshot.png)
 

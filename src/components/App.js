@@ -28,6 +28,7 @@ class App extends Component {
     searchTerm: DEFAULT_QUERY,
     error: null,
     isLoading: false,
+    sortKey: 'NONE',
   }
 
   onSearchChange = (event) => {
@@ -43,6 +44,11 @@ class App extends Component {
     }
 
     event.preventDefault();
+  }
+
+  onSort = (event) => {
+    console.log(event.target.value);
+    this.setState({ sortKey: event.target.value });
   }
 
   setSearchTopStories = (result) => {
@@ -98,6 +104,7 @@ class App extends Component {
       results,
       error,
       isLoading,
+      sortKey,
     } = this.state;
 
     const page = (
@@ -128,7 +135,11 @@ class App extends Component {
           />
           { error
             ? <ErrorBlock />
-            : <Table list={list}/>
+            : <Table 
+                list={list}
+                sortKey={sortKey}
+                onSort={this.onSort}
+              />
           }
           <ButtonWithLoading
             isLoading={isLoading} 

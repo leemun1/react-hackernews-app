@@ -6,6 +6,27 @@
   align-items: center;
 }
 
+.Table__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Table__header--label {
+  color: #666;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.Table__header select {
+  color: #666;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: 'Roboto';
+  text-transform: uppercase;
+}
+
 .Item__box {
   width: 100%;
   display: flex;

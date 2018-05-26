@@ -6,22 +6,28 @@ import Search from './Search';
 import Table from './Table';
 import Button from './Button';
 import ErrorBlock from './ErrorBlock';
+import withLoading from './withLoading';
 import '../styles/App.css';
 
-const DEFAULT_QUERY = 'react';
-const DEFAULT_HPP = '100';
-const PATH_BASE = 'https://hn.algolia.com/api/v1';
-const PATH_SEARCH = '/search';
-const PARAM_SEARCH = 'query=';
-const PARAM_PAGE = 'page=';
-const PARAM_HPP = 'hitsPerPage=';
+import {
+  DEFAULT_QUERY,
+  DEFAULT_HPP,
+  PATH_BASE,
+  PATH_SEARCH,
+  PARAM_SEARCH,
+  PARAM_PAGE,
+  PARAM_HPP,
+} from '../constants';
 
 class App extends Component {
+  _isMounted = false;
+
   state = {
     result: null,
     searchKey: '',
     searchTerm: DEFAULT_QUERY,
     error: null,
+    isLoading: false,
   }
 
   onSearchChange = (event) => {
@@ -56,15 +62,17 @@ class App extends Component {
       results: {
         ...results,
         [searchKey]: { hits: updatedHits, page }
-      }
+      },
+      isLoading: false
     });
   }
 
   fetchSearchTopStories = (searchTerm, page = 0) => {
-    fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`)
-      .then(response => response.json())
-      .then(result => this.setSearchTopStories(result))
-      .catch(error => this.setState({ error }));
+    this.setState({ isLoading: true });
+
+    axios(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`)
+      .then(result => this._isMounted && this.setSearchTopStories(result.data))
+      .catch(error => this._isMounted && this.setState({ error }));
   }
 
   needsToSearchTopStories = (searchTerm) => {
@@ -72,9 +80,15 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
+
     const { searchTerm } = this.state;
     this.setState({ searchKey: searchTerm });
     this.fetchSearchTopStories(searchTerm);
+  }
+
+  componentWillAmount() {
+    this._isMounted = false;
   }
 
   render() {
@@ -83,6 +97,7 @@ class App extends Component {
       searchKey,
       results,
       error,
+      isLoading,
     } = this.state;
 
     const page = (
@@ -96,6 +111,8 @@ class App extends Component {
       results[searchKey] &&
       results[searchKey].hits
     ) || [];
+
+    const ButtonWithLoading = withLoading(Button);
 
     return (
       <div className="App">
@@ -111,17 +128,15 @@ class App extends Component {
           />
           { error
             ? <ErrorBlock />
-            : <div>
-                <Table list={list}/>
-                <div>
-                  <Button onClick={() => 
-                    this.fetchSearchTopStories(searchTerm, page + 1)}
-                  >
-                    Get More
-                  </Button>
-                </div>
-              </div>
+            : <Table list={list}/>
           }
+          <ButtonWithLoading
+            isLoading={isLoading} 
+            onClick={() => 
+                this.fetchSearchTopStories(searchTerm, page + 1)}
+          >
+            Get More
+          </ButtonWithLoading>
         </div>
         <div className="App__panel App__panel--right">
           <SideBar side="right" />

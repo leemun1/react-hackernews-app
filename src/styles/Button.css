@@ -1,0 +1,16 @@
+.Button {
+  display: block;
+  background: rgb(255, 94, 0);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.Button:hover {
+  background: rgb(236, 91, 0);
+}

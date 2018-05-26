@@ -1,6 +1,6 @@
 /* Left Sidebar */
 .SideBar--left {
-  padding-left: 10vw;
+  padding-left: 4vw;
   position: fixed;
   height: 95vh;
   display:flex;
@@ -8,8 +8,14 @@
   align-items: center;
 }
 
+@media (min-width: 1300px) {
+  .SideBar--left {
+    padding-left: 10vw;
+  }
+}
+
 .Brand {
-  margin: 1.5rem 0 ;
+  margin: 1.6rem 0 ;
 }
 
 .Brand span {
@@ -19,26 +25,51 @@
   border-bottom: 0.2rem solid rgb(255, 94, 0);
 }
 
-.Nav div {
-  height: 100px;
-  border: 1px solid red;
+.Nav__header {
+  text-transform: uppercase;
+}
+
+.Nav__list {
+  padding: 1.1rem 0;
+}
+
+.Nav__list li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+.Nav__list a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 400; 
+}
+
+.Nav__list span[role] {
+  display: inline-block;
+  width: 2rem;
 }
 
 /* Right Sidebar */
 .SideBar--right {
   position: fixed;
-  padding-right: 10vw;
+  padding-right: 2vw;
   height: 95vh;
   display:flex;
   justify-content: center;
   align-items: center;
 }
 
-.SideBar__content { 
+@media (min-width: 1150px) {
+  .SideBar--right {
+    padding-right: 10vw;
+  }
+}
+
+.SideBar__content {
   margin-left: 1.5rem;
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  width: 240px;
 }
 
 .SideBar__content h3 {

@@ -11,8 +11,59 @@ const SideBar = ({ side }) => {
           <span>HN</span>
         </div>
         <div className="Nav">
-          <div className="Nav__header">header</div>
-          <div className="Nav__list">list</div>
+          <div className="Nav__header">Topics</div>
+          <div className="Nav__list">
+            <ul>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Development">🚀</span>
+                  <span>Development</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Data Science">📊</span>
+                  <span>Data Science</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Blockchain">🔗</span>
+                  <span>Blockchain</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Mobile">📱</span>
+                  <span>Mobile</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Design">🎨</span>
+                  <span>Design</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Social">🍻</span>
+                  <span>Social</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="Open Source">🕹️</span>
+                  <span>Open Source</span>
+                </a>
+              </li>
+              <li>
+                <a href="/">
+                  <span role="img" aria-label="All Topics">📦</span>
+                  <span>All Topics</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     )

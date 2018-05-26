@@ -44,7 +44,7 @@
 .Item__box--preview {
   display: flex;
   flex-direction: column;
-  max-width: 32rem;
+  max-width: 500px;
 }
 
 .Item__box--info {

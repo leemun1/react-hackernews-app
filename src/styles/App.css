@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+}
+
+.App__panel {
+  border: 1px solid red;
+}
+
+.App__panel--left {
+  width: 25%;
+}
+
+.App__panel--center {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App__panel--right {
+  width: 30%;
+}

@@ -9,8 +9,8 @@
   font-size: 16px;
   font-weight: 300;
   cursor: pointer;
-}
 
-.Button:hover {
-  background: rgb(236, 91, 0);
+  &:hover {
+    background: rgb(236, 91, 0);
+  }
 }

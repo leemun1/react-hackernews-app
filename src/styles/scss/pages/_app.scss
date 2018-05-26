@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+
+  &__panel {
+    &--left {
+      width: 25%;
+    }
+  
+    &--center {
+      width: 45%;
+      min-width: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    &--right {
+      width: 30%;
+    }
+  }
+}

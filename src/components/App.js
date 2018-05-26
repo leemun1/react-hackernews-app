@@ -7,7 +7,6 @@ import Table from './Table';
 import Button from './Button';
 import ErrorBlock from './ErrorBlock';
 import withLoading from './withLoading';
-import '../styles/App.css';
 
 import {
   DEFAULT_QUERY,

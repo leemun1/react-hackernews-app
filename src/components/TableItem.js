@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../styles/Table.css';
 
 const TableItem = ({ item }) =>
   <div className="Item__box">

@@ -1,0 +1,48 @@
+.Item__box {
+  width: 100%;
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(233, 233, 233, 0.452);
+
+  a {
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  &--info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    min-width: 6rem;
+    line-height: 1.5;
+    color: #666;
+
+    div:nth-child(1) {
+      font-size: 20px;
+    }
+  }
+
+  &--preview {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+
+    p {
+      font-size: 1.2rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  &--upvotes,
+  &--comments {
+    margin-right: 0.5rem;
+
+  }
+}

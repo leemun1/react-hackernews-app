@@ -2,7 +2,6 @@ import React from 'react';
 import { sortBy } from 'lodash';
 
 import TableItem from './TableItem';
-import '../styles/Table.css';
 
 const SORTS = {
   NONE: list => list,

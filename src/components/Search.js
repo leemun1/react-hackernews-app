@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/Search.css';
 
 class Search extends Component {
   componentDidMount() {

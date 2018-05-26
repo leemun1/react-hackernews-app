@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Button from './Button';
-import '../styles/SideBar.css';
 
 const SideBar = ({ side }) => {
   if (side === "left") {
